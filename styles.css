@@ -1,0 +1,236 @@
+.todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  color: #4a444c;
+}
+
+.todo .task_header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-family: roboto;
+  font-weight: 600;
+  font-size: 1.5em;
+  width: 80%;
+}
+
+.todo .task_header .avatar {
+  height: 40px;
+  width: 40px;
+  background-color: #fdf5ff;
+  border-radius: 50%;
+}
+
+.todo .pop_up_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 19em;
+  width: 34em;
+  background-color: white;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  border-radius: 10px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-box-shadow: -10px 10px 40px rgba(189, 187, 187, 0.1);
+          box-shadow: -10px 10px 40px rgba(189, 187, 187, 0.1);
+}
+
+.todo .pop_up_container .pop_up {
+  height: 80%;
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.todo .pop_up_container .pop_up h3 {
+  font-family: roboto;
+  font-weight: 600;
+  font-size: 22px;
+}
+
+.todo .pop_up_container .pop_up #pop_up_input {
+  height: 3.3em;
+  width: 26.75em;
+  background-color: #fdf5ff;
+  color: #4a444c;
+  border: none;
+  padding-left: 10px;
+  outline: none;
+  border-radius: 10px;
+}
+
+.todo .pop_up_container .pop_up #pop_up_btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 60%;
+}
+
+.todo .pop_up_container .pop_up #pop_up_btns .btn {
+  height: 2.1rem;
+  width: 6.375rem;
+  background-color: transparent;
+  border: 1px solid #4a444c;
+  outline: none;
+  border-radius: 10px;
+  color: #4a444c;
+}
+
+.todo .pop_up_container .pop_up #pop_up_btns .btn:hover {
+  -webkit-transition: 300 ease-in;
+  transition: 300 ease-in;
+  background-color: #4a444c;
+  color: #fdf5ff;
+}
+
+.todo .hide {
+  display: none;
+}
+
+.todo .container {
+  width: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 2fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+  grid-gap: 2em;
+}
+
+.todo .container .task {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #fdf5ff;
+  text-align: left;
+  border-radius: 10px;
+  width: 20em;
+  max-width: 20em;
+  padding-bottom: 20px;
+}
+
+.todo .container .task .task_container {
+  width: 80%;
+}
+
+.todo .container .task .task_list {
+  font-family: roboto;
+  font-weight: bold;
+  font-size: 12px;
+  list-style: none;
+  padding: 0px;
+  margin: 0;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.todo .container .task h4 {
+  font-family: roboto;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.todo .container .task li {
+  list-style: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 0.7em;
+  margin: 0.7em;
+}
+
+.todo .container .task .invisible {
+  display: none;
+}
+
+.todo .container #add_newTask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-family: roboto;
+  font-weight: bold;
+  font-size: 15px;
+  height: 3em;
+  width: 3em;
+  font-size: 28;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #4a444c;
+  color: #fdf5ff;
+  bottom: 2em;
+  right: 2em;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,155 @@
+//variables
+$primaryColor: #4a444c;
+$secondaryColor: #fdf5ff;
+$tertiaryColor: white;
+$borderRadius: 10px;
+// $primaryFont: normal normal 16px/1.4 roboto;
+
+@mixin flexCenter($position, $direction) {
+  display: flex;
+  align-items: center;
+  flex-direction: $direction;
+  justify-content: $position;
+}
+
+@mixin fonts($weight, $size) {
+  font-family: roboto;
+  font-weight: $weight;
+  font-size: $size;
+}
+
+@mixin dimension($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+.todo {
+  @include flexCenter(space-between, column);
+  color: $primaryColor;
+
+  .task_header {
+    @include flexCenter(space-between, row);
+    @include fonts(600, 1.5em);
+
+    width: 80%;
+    .avatar {
+      height: 40px;
+      width: 40px;
+      background-color: $secondaryColor;
+      border-radius: 50%;
+    }
+  }
+
+  .pop_up_container {
+    @include flexCenter(center, column);
+    @include dimension(19em, 34em);
+
+    background-color: $tertiaryColor;
+    z-index: 5;
+    position: absolute;
+    top: 50%;
+    border-radius: $borderRadius;
+    transform: translateY(-50%);
+    box-shadow: -10px 10px 40px rgba(189, 187, 187, 0.1);
+
+    .pop_up {
+      @include dimension(80%, 80%);
+      @include flexCenter(space-around, column);
+      h3 {
+        @include fonts(600, 22px);
+      }
+      #pop_up_input {
+        @include dimension(3.3em, 26.75em);
+        background-color: $secondaryColor;
+        color: $primaryColor;
+        border: none;
+        padding-left: 10px;
+        outline: none;
+        border-radius: $borderRadius;
+      }
+      #pop_up_btns {
+        @include flexCenter(space-around, row);
+        width: 60%;
+
+        .btn {
+          @include dimension(2.1rem, 6.375rem);
+          background-color: transparent;
+          border: 1px solid $primaryColor;
+          outline: none;
+          border-radius: $borderRadius;
+          color: $primaryColor;
+          &:hover {
+            transition: 300 ease-in;
+            background-color: $primaryColor;
+            color: $secondaryColor;
+          }
+        }
+      }
+    }
+  }
+  .hide {
+    display: none;
+  }
+
+  .container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+    grid-gap: 2em;
+
+    .task {
+      position: relative;
+      @include flexCenter(center, column);
+      background-color: $secondaryColor;
+      text-align: left;
+      border-radius: $borderRadius;
+      width: 20em;
+      max-width: 20em;
+      padding-bottom: 20px;
+
+      .task_container {
+        width: 80%;
+      }
+
+      .task_list {
+        @include fonts(bold, 12px);
+        list-style: none;
+        padding: 0px;
+        margin: 0;
+        align-items: flex-end;
+      }
+      h4 {
+        @include fonts(400, 1rem);
+      }
+
+      li {
+        list-style: none;
+        background-color: $tertiaryColor;
+        border-radius: $borderRadius;
+        padding: 0.7em;
+        margin: 0.7em;
+      }
+
+      .invisible {
+        // height: 0;
+        // width: 0;
+        display: none;
+      }
+    }
+
+    //add new todo task button
+    #add_newTask {
+      @include flexCenter(center, row);
+      @include fonts(bold, 15px);
+      height: 3em;
+      width: 3em;
+      font-size: 28;
+      border-radius: 50%;
+      position: absolute;
+      background-color: $primaryColor;
+      color: $secondaryColor;
+      bottom: 2em;
+      right: 2em;
+    }
+  }
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>To Do List</title>
+  </head>
+  <body>
+    <section class="todo">
+      <section class="task_header">
+        <h2>12 Feb 2021</h2>
+        <div class="avatar">
+          <!-- <img src="" alt="avatar" /> -->
+        </div>
+      </section>
+
+      <div class="pop_up_container hide">
+        <div class="pop_up">
+          <h3>Add Tasks</h3>
+          <input type="text" id="pop_up_input" />
+          <div id="pop_up_btns">
+            <input type="button" class="btn" id="add_btn" value="Add Task" />
+            <input
+              type="button"
+              class="btn"
+              id="cancel_add_btn"
+              value="Cancel"
+            />
+          </div>
+        </div>
+      </div>
+
+      <main class="container">
+        <section class="task">
+          <!-- Tasks not done -->
+          <div class="task_container new_tasks">
+            <div id="add_newTask">+</div>
+            <h2 id="task_incomplete" class="task_header">Task</h2>
+            <ul class="task_list">
+              <h4 id="no_task_text">
+                You don't have anything scheduled today yet
+              </h4>
+            </ul>
+          </div>
+        </section>
+
+        <section class="task">
+          <div class="task_container">
+            <h2 id="task_in_progress" class="task_header">In Progress</h2>
+            <ul class="task_list">
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="task">
+          <div class="task_container">
+            <h2 id="task_completed" class="task_header">Completed</h2>
+            <ul class="task_list">
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+              <li class="list_item" draggable="true"><p>Task 1</p></li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
