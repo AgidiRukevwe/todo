@@ -1,4 +1,5 @@
 const _getAll = (el) => document.querySelectorAll(el);
+
 const tasksContainer = _getAll(".task");
 
 //============================
@@ -65,29 +66,62 @@ const add_btn = _get("#add_btn");
 //============================
 //add new task to the list
 //============================
-
+let input_array = [];
 add_btn.addEventListener("click", () => {
-  const input = _get("#pop_up_input").value;
+  let input = _get("#pop_up_input").value;
   const task_list = _get(".new_tasks .task_list");
+  const task_completed = _get(".task_completed .task_list");
   const no_task_placeholder = _get("#no_task_text");
-  console.log(no_task_text);
+
+  input_array = [...input_array, input];
+
+  //   if (input) {
+  //     console.log(input_array);
+  //     localStorage.setItem("inputs", JSON.stringify(input_array));
+  //     const inputsFromStorage = JSON.parse(localStorage.getItem("inputs"));
+  //     // inputsFromStorage.forEach(input=>{
+
+  //     // })
+  //     input = null;
+  //   }
 
   if (input) {
-    console.log(input);
     no_task_placeholder.textContent = "";
     const li = document.createElement("Li");
     li.setAttribute("draggable", "true");
     li.classList.add("list_item");
-    li.innerHTML = `<p> ${input} </p>`;
+    li.innerHTML = `<p> ${input} </p>
+    <input type='checkbox' class='checkbox'/>
+    `;
     task_list.append(li);
+
+    const task_list_item = _getAll(".new_tasks .task_list li");
+    task_list_item.forEach((list) => {
+      const checkbox = list.querySelector(".checkbox");
+      checkbox.addEventListener("click", () => {
+        task_list.removeChild(list);
+        task_completed.append(list);
+      });
+    });
+
+    // const checkBox = _getAll(".checkbox");
+    // checkBox?.forEach((box) => {
+    //   box.addEventListener("click", () => {
+
+    //   });
+    // });
+
     setVisibility(add_task_component);
   } else console.log("please insert value");
-  const t = _getAll(".list_item");
-  startDrag(t);
 
-  console.log(t);
+  //convert from nodelist to array
+  const task = _getAll(".list_item");
+  let task_array = [];
+  task.forEach((t) => {
+    task_array = [...task_array, t.innerText];
+    localStorage.setItem("all_task", JSON.stringify(task_array));
+    console.log(localStorage.getItem("all_task"));
+  });
+
+  startDrag(task);
 });
-
-//============================
-//get the date
-//============================

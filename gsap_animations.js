@@ -10,9 +10,3 @@ gsap.from("#date", 0.5, { y: -50 }, 0.3);
 show_task_input.addEventListener("click", () => {
   gsap.to(".pop_up_container", 0.5, { y: 30 }, 0.3);
 });
-
-// const scale = (el) => {
-//   gsap.to(el, 0.5, { scale: 1.1, ease: "power1" });
-// };
-
-// show_task_input.addEventListener("mouseover", () => scale(show_task_input));

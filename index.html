@@ -9,7 +9,7 @@
   <body>
     <section class="todo">
       <section class="task_header">
-        <h2 id="date">12 Feb 2021</h2>
+        <h2 id="date"></h2>
         <div class="avatar">
           <!-- <img src="" alt="avatar" /> -->
         </div>
@@ -45,14 +45,14 @@
         </section>
 
         <section class="task">
-          <div class="task_container">
+          <div class="task_container task_in_progress">
             <h2 id="task_in_progress" class="task_header">In Progress</h2>
             <ul class="task_list"></ul>
           </div>
         </section>
 
         <section class="task">
-          <div class="task_container">
+          <div class="task_container task_completed">
             <h2 id="task_completed" class="task_header">Completed</h2>
             <ul class="task_list"></ul>
           </div>
@@ -62,5 +62,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <script src="gsap_animations.js"></script>
     <script src="script.js"></script>
+    <script src="date.js"></script>
   </body>
 </html>
