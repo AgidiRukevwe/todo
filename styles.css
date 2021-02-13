@@ -127,13 +127,15 @@
   outline: none;
   border-radius: 10px;
   color: #4a444c;
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
 }
 
 .todo .pop_up_container .pop_up #pop_up_btns .btn:hover {
-  -webkit-transition: 300 ease-in;
-  transition: 300 ease-in;
   background-color: #4a444c;
   color: #fdf5ff;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .todo .hide {
@@ -234,5 +236,12 @@
   color: #fdf5ff;
   bottom: 2em;
   right: 2em;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.todo .container #add_newTask:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 /*# sourceMappingURL=styles.css.map */

@@ -78,10 +78,11 @@ $borderRadius: 10px;
           outline: none;
           border-radius: $borderRadius;
           color: $primaryColor;
+          transition: 0.2s ease-in;
           &:hover {
-            transition: 300 ease-in;
             background-color: $primaryColor;
             color: $secondaryColor;
+            transform: scale(1.1);
           }
         }
       }
@@ -151,6 +152,10 @@ $borderRadius: 10px;
       color: $secondaryColor;
       bottom: 2em;
       right: 2em;
+      transition: 0.3s ease-in;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 }

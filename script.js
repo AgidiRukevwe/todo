@@ -1,26 +1,29 @@
-const tasksContainer = document.querySelectorAll(".task");
-const tasks = document.querySelectorAll(".list_item");
-const list_item = document.querySelector(".list_item");
+const _getAll = (el) => document.querySelectorAll(el);
+const tasksContainer = _getAll(".task");
 
 //============================
-//drag mocule
+//drag module
 //============================
-tasks.forEach((task) => {
-  task.addEventListener("dragstart", () => {
-    console.log("dragging");
-    task.classList.add("dragged_item");
-  });
 
-  task.addEventListener("dragend", () => {
-    task.classList.remove("dragged_item");
+const startDrag = (tasks) => {
+  tasks.forEach((task) => {
+    task.addEventListener("dragstart", () => {
+      console.log("dragging");
+      task.classList.add("dragged_item");
+    });
+    task.addEventListener("dragend", () => {
+      task.classList.remove("dragged_item");
+    });
   });
-});
+};
 
 tasksContainer.forEach((container) => {
-  container.addEventListener("dragover", () => {
-    const dragged_item = document.querySelector(".dragged_item");
+  container.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    const dragged_item = _get(".dragged_item");
     const subContainer = container.querySelector(".task_container .task_list");
-    subContainer.append(dragged_item);
+
+    dragged_item && subContainer.append(dragged_item);
     console.log("drag over");
   });
 });
@@ -30,7 +33,7 @@ tasksContainer.forEach((container) => {
 //============================
 console.log(Date.now());
 
-//check if it is already viiible
+//check if module is already viiible
 let visible;
 const setVisibility = (el) => {
   if (!visible) {
@@ -46,9 +49,9 @@ const setVisibility = (el) => {
   }
 };
 
-const show_add_task_component = document.querySelector("#add_newTask");
-const add_task_component = document.querySelector(".pop_up_container");
-const cancel_add_task = document.querySelector("#cancel_add_btn");
+const show_add_task_component = _get("#add_newTask");
+const add_task_component = _get(".pop_up_container");
+const cancel_add_task = _get("#cancel_add_btn");
 
 show_add_task_component.addEventListener("click", () =>
   setVisibility(add_task_component)
@@ -57,16 +60,16 @@ cancel_add_task.addEventListener("click", () =>
   setVisibility(add_task_component)
 );
 
-const add_btn = document.querySelector("#add_btn");
+const add_btn = _get("#add_btn");
 
 //============================
 //add new task to the list
 //============================
 
 add_btn.addEventListener("click", () => {
-  const input = document.querySelector("#pop_up_input").value;
-  const task_list = document.querySelector(".new_tasks .task_list");
-  const no_task_placeholder = document.querySelector("#no_task_text");
+  const input = _get("#pop_up_input").value;
+  const task_list = _get(".new_tasks .task_list");
+  const no_task_placeholder = _get("#no_task_text");
   console.log(no_task_text);
 
   if (input) {
@@ -77,7 +80,12 @@ add_btn.addEventListener("click", () => {
     li.classList.add("list_item");
     li.innerHTML = `<p> ${input} </p>`;
     task_list.append(li);
+    setVisibility(add_task_component);
   } else console.log("please insert value");
+  const t = _getAll(".list_item");
+  startDrag(t);
+
+  console.log(t);
 });
 
 //============================
